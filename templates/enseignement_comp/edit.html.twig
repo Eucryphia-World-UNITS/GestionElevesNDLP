@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit EnseignementComp{% endblock %}
+
+{% block body %}
+    <h1>Edit EnseignementComp</h1>
+
+    {{ include('enseignement_comp/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('enseignement_comp_index') }}">back to list</a>
+
+    {{ include('enseignement_comp/_delete_form.html.twig') }}
+{% endblock %}

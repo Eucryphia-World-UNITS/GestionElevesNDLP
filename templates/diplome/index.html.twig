@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Diplome index{% endblock %}
+
+{% block body %}
+    <h1>Diplome index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lv2_obligatoire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for diplome in diplomes %}
+            <tr>
+                <td>{{ diplome.id }}</td>
+                <td>{{ diplome.name }}</td>
+                <td>{{ diplome.lv2Obligatoire ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('diplome_show', {'id': diplome.id}) }}">show</a>
+                    <a href="{{ path('diplome_edit', {'id': diplome.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('diplome_new') }}">Create new</a>
+{% endblock %}

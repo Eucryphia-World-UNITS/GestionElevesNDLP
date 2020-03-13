@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CourOption index{% endblock %}
+
+{% block body %}
+    <h1>CourOption index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour_option in cour_options %}
+            <tr>
+                <td>{{ cour_option.id }}</td>
+                <td>{{ cour_option.name }}</td>
+                <td>
+                    <a href="{{ path('cour_option_show', {'id': cour_option.id}) }}">show</a>
+                    <a href="{{ path('cour_option_edit', {'id': cour_option.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cour_option_new') }}">Create new</a>
+{% endblock %}
